@@ -1,4 +1,3 @@
-import {Header} from "./components/Header.jsx";
 import {Root} from "./components/Root.jsx";
 import {CityInfo} from "./components/CityInfo.jsx";
 import {CityInput} from "./components/CityInput.jsx";
@@ -30,7 +29,6 @@ function App() {
 
     return (
         <Root>
-            <Header />
             <CityInput onCitySubmit={handleCityChange} />
             <CityInfo cityName={cityName} />
         </Root>

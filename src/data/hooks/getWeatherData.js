@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getTemperature = async (lon, lat) => {
+export const getWeatherData = async (lon, lat) => {
     const weatherResponse = await axios.get(
         'https://api.weather.yandex.ru/v2/forecast',
         {
@@ -14,5 +14,14 @@ export const getTemperature = async (lon, lat) => {
         }
     )
 
-    return weatherResponse.data.fact.temp
+    const response = weatherResponse.data.fact
+
+    return {
+        temperature: response.temp,
+        condition: response.condition,
+        feelsLike: response.feels_like,
+        humidity: response.humidity,
+        windSpeed: response.wind_speed,
+        pressure: response.pressure_mm
+    }
 }
